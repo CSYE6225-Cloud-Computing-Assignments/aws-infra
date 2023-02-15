@@ -1,0 +1,11 @@
+name: Check Terraform Format
+
+on: [push]
+
+jobs:
+  check-terraform-format:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Check Terraform Format
+      run: terraform fmt -check
