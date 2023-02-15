@@ -11,8 +11,4 @@ jobs:
       - name: Set up Terraform
         uses: hashicorp/setup-terraform@v1
       - name: Terraform format check
-        run: |
-          if ! terraform fmt -check; then
-            echo "Terraform code is not properly formatted"
-            exit 1
-          fi
+        run: terraform fmt -check -recursive
