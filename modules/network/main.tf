@@ -7,7 +7,7 @@ resource "aws_vpc" "vpc" {
   instance_tenancy = "default"
 
   tags = {
-    description = "Terraform generated VPC"
+    Description = "Terraform generated VPC"
   }
 }
 
