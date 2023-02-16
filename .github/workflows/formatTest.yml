@@ -1,0 +1,19 @@
+name: Check Terraform Format
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  format_check:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Set up Terraform
+        uses: hashicorp/setup-terraform@v1
+      - name: Terraform format check
+        run: terraform fmt -check -recursive
+      - run: echo "This job's status is ${{ job.status }}."
