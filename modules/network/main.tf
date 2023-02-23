@@ -70,3 +70,14 @@ resource "aws_route_table_association" "rt_associations_private" {
   subnet_id      = element(aws_subnet.private.*.id, count.index)
   route_table_id = aws_route_table.private_route_table.id
 }
+
+
+output "new_vpc_id" {
+  value = aws_vpc.vpc.id
+}
+output "public_subnet_ids" {
+  value = aws_subnet.public.*.id
+}
+output "private_subnet_ids" {
+  value = aws_subnet.private.*.id
+}
