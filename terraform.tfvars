@@ -1,0 +1,11 @@
+aws_profile               = "dev"
+aws_region                = "us-east-1"
+vpc_cidr_block            = "10.0.0.0/16"
+private_subnet_count      = 3
+private_subnet_cidr_block = ["10.0.1.0/24", "10.0.2.0/24", "10.0.3.0/24"]
+public_subnet_count       = 3
+public_subnet_cidr_block  = ["10.0.4.0/24", "10.0.5.0/24", "10.0.6.0/24"]
+public_route              = "0.0.0.0/0"
+ec2_instance_count        = 1
+key_pair_name             = "ec2"
+ami_id                    = "ami-0dfcb1ef8550277af"

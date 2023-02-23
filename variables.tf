@@ -38,3 +38,28 @@ variable "public_route" {
   type    = string
   default = "0.0.0.0/0"
 }
+
+variable "key_pair_name" {
+  type    = string
+  default = "ec2"
+}
+
+variable "ec2_instance_count" {
+  type    = number
+  default = 1
+}
+
+output "new_vpc_id" {
+  value = module.vpc.new_vpc_id
+}
+
+variable "application_port" {
+  type    = number
+  default = 8080
+}
+
+variable "ami_id" {
+  type    = string
+  default = "ami-0dfcb1ef8550277af"
+
+}

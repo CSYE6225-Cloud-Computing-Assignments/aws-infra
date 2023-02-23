@@ -14,3 +14,20 @@
 
 **Resource "aws_route_table_association"**: This will link the route table to a subnet
 This module should be used in conjunction with others and combined with security, monitoring, logging and other services.
+
+**Resource "aws_instance"**: This will create an ec2 instance that will host the web application
+
+### Steps to run file
+1. Initialization
+```
+Terraform init
+```
+2. Plan your infrastructure
+```
+Terraform plan
+```
+3. Deploy your infrastructure
+```
+Terraform apply
+```
+
