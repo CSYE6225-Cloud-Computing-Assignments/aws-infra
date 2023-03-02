@@ -6,4 +6,11 @@ variable "vpc_cidr_block" {}
 variable "key_pair_name" {}
 variable "application_port" {}
 variable "ami_id" {}
-
+variable "aws_iam_role_s3" {}
+variable "rds_instance" {}
+variable "rds_instance_endpoint" {}
+variable "db_username" {}
+variable "db_password" {}
+variable "db_name" {}
+variable "db_port" {}
+variable "created_bucket_name" {}
