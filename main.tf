@@ -48,3 +48,10 @@ module "iam" {
   source              = "./modules/iam"
   created_bucket_name = module.s3.created_bucket_name
 }
+
+module "r53" {
+  source                  = "./modules/r53"
+  hosted_zone_name        = var.hosted_zone_name
+  webapp_server_public_ip = module.ec2.webapp_server_public_ip
+
+}

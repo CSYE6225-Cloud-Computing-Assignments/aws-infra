@@ -29,7 +29,7 @@ resource "aws_db_parameter_group" "rds-pg" {
 
 ##DB security group
 resource "aws_security_group" "database" {
-  name        = "database"
+  name        = "Database"
   description = "database security group"
   vpc_id      = var.new_vpc_id
 
