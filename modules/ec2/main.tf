@@ -88,11 +88,15 @@ resource "aws_instance" "ec2" {
     volume_type = "gp2"
   }
   tags = {
-    Name = "Webapp_server"
+    Name = "Webapp_Server"
   }
 
 }
 
 output "application_security_group" {
   value = aws_security_group.application.id
+}
+
+output "webapp_server_public_ip" {
+  value = [for instance in aws_instance.ec2 : instance.public_ip if instance.public_ip != null]
 }

@@ -79,3 +79,11 @@ variable "db_name" {
 variable "db_port" {
   type = string
 }
+
+variable "hosted_zone_name" {
+  type = string
+}
+
+output "webapp_server_public_ip" {
+  value = module.ec2.webapp_server_public_ip
+}
