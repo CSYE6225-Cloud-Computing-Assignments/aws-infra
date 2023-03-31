@@ -31,6 +31,15 @@ EOF
 #   }
 # }
 
+data "aws_iam_policy" "cloud_watch_agent_policy" {
+  arn = var.cloud_agent_policy_arn
+}
+
+resource "aws_iam_role_policy_attachment" "agent_policy_attachment" {
+  role       = aws_iam_role.EC2_CSYE6225.name
+  policy_arn = data.aws_iam_policy.cloud_watch_agent_policy.arn
+}
+
 ##IAM policy attachment
 resource "aws_iam_role_policy_attachment" "attachment" {
   role       = aws_iam_role.EC2_CSYE6225.name

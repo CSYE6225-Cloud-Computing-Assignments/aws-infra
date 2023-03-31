@@ -45,8 +45,9 @@ module "s3" {
 }
 
 module "iam" {
-  source              = "./modules/iam"
-  created_bucket_name = module.s3.created_bucket_name
+  source                 = "./modules/iam"
+  created_bucket_name    = module.s3.created_bucket_name
+  cloud_agent_policy_arn = var.cloud_agent_policy_arn
 }
 
 module "r53" {
