@@ -66,6 +66,7 @@ resource "aws_instance" "ec2" {
   #!/bin/bash
   echo "# App Environment Variables Setting Started" >> /var/log/user-data.log
   {
+    echo "NODE_ENV=production"
     echo "HOST_NAME=${var.rds_instance_endpoint}"
     echo "DB_USERNAME=${var.db_username}"
     echo "DB_PASSWORD=${var.db_password}"
@@ -80,6 +81,7 @@ resource "aws_instance" "ec2" {
   sudo systemctl enable webapp.service
   sudo systemctl restart webapp.service
   sudo systemctl status webapp.service
+  sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl     -a fetch-config     -m ec2     -c file:/home/ec2-user/webapp/amazon-cloudwatch-agent.json     -s
   echo "# App Environment Variables Setting Ended" >> /var/log/user-data.log
 
   EOF
