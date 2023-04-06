@@ -51,8 +51,9 @@ module "iam" {
 }
 
 module "r53" {
-  source                  = "./modules/r53"
-  hosted_zone_name        = var.hosted_zone_name
-  webapp_server_public_ip = module.ec2.webapp_server_public_ip
-
+  source           = "./modules/r53"
+  hosted_zone_name = var.hosted_zone_name
+  #webapp_server_public_ip = module.ec2.webapp_server_public_ip 
+  aws_lb_dns_name = module.ec2.aws_lb_dns_name
+  aws_lb_zone_id  = module.ec2.aws_lb_zone_id
 }
