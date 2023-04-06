@@ -88,6 +88,6 @@ variable "cloud_agent_policy_arn" {
   type = string
 }
 
-output "webapp_server_public_ip" {
-  value = module.ec2.webapp_server_public_ip
-}
+# output "webapp_server_public_ip" {
+#   value = module.ec2.webapp_server_public_ip
+# }
