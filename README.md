@@ -31,3 +31,12 @@ Terraform plan
 Terraform apply
 ```
 
+#### This command will import the certificate and private key files located at the specified paths into AWS ACM, using the profile specified by the <profile-name> argument. The certificate will be associated with the current AWS account and region.
+```
+aws acm import-certificate --profile <profile-name> --certificate fileb:///path/to/certificate.pem --private-key fileb:///path/to/private.key
+```
+Here is a more detailed explanation of each argument:
+
+profile: The name of the profile to use. Profiles are used to store AWS credentials, so you can use different profiles for different accounts or environments.
+certificate: The path to the PEM-encoded certificate file.
+private-key: The path to the PEM-encoded private key file.

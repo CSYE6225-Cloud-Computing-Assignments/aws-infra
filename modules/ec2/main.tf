@@ -104,10 +104,23 @@ resource "aws_lb" "webapp_load_balancer" {
   }
 }
 
-resource "aws_lb_listener" "webapp_lb_listner" {
+# resource "aws_lb_listener" "webapp_lb_listner1" {
+#   load_balancer_arn = aws_lb.webapp_load_balancer.arn
+#   port              = "80"
+#   protocol          = "HTTP"
+#   default_action {
+#     type             = "forward"
+#     target_group_arn = aws_lb_target_group.webapp_target_group.arn
+#   }
+# }
+
+resource "aws_lb_listener" "webapp_lb_listner2" {
   load_balancer_arn = aws_lb.webapp_load_balancer.arn
-  port              = "80"
-  protocol          = "HTTP"
+  port              = "443"
+  protocol          = "HTTPS"
+  ssl_policy        = "ELBSecurityPolicy-2016-08"
+  certificate_arn   = var.ssl_certificate_arn
+
   default_action {
     type             = "forward"
     target_group_arn = aws_lb_target_group.webapp_target_group.arn
@@ -133,6 +146,8 @@ resource "aws_launch_template" "asg_launch_config" {
       volume_size           = 50
       volume_type           = "gp2"
       delete_on_termination = true
+      kms_key_id            = var.ebs_key_arn
+      encrypted             = true
     }
   }
 
