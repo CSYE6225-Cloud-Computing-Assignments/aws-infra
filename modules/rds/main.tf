@@ -14,6 +14,8 @@ resource "aws_db_instance" "webapp_rds" {
   skip_final_snapshot    = true
   vpc_security_group_ids = [aws_security_group.database.id]
   allocated_storage      = 20
+  kms_key_id             = var.rds_key_arn
+  storage_encrypted      = true
 
   tags = {
     name = "Webapp_Database"

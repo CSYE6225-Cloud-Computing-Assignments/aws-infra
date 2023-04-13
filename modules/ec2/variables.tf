@@ -14,3 +14,5 @@ variable "db_password" {}
 variable "db_name" {}
 variable "db_port" {}
 variable "created_bucket_name" {}
+variable "ssl_certificate_arn" {}
+variable "ebs_key_arn" {}

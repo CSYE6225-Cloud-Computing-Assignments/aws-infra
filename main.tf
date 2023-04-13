@@ -27,6 +27,8 @@ module "ec2" {
   db_password           = var.db_password
   db_name               = var.db_name
   db_port               = var.db_port
+  ssl_certificate_arn   = var.ssl_certificate_arn
+  ebs_key_arn           = module.kms.ebs_key_arn
 }
 
 module "rds" {
@@ -37,6 +39,7 @@ module "rds" {
   db_username                = var.db_username
   db_password                = var.db_password
   db_name                    = var.db_name
+  rds_key_arn                = module.kms.rds_key_arn
 }
 
 module "s3" {
@@ -56,4 +59,8 @@ module "r53" {
   #webapp_server_public_ip = module.ec2.webapp_server_public_ip 
   aws_lb_dns_name = module.ec2.aws_lb_dns_name
   aws_lb_zone_id  = module.ec2.aws_lb_zone_id
+}
+
+module "kms" {
+  source = "./modules/kms"
 }
